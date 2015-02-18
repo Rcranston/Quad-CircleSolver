@@ -1,0 +1,153 @@
+//Quadradic and circle collision Calculator RCranston  
+//Started :2/5/2015
+//last Edit:2/18/2015
+#include<iostream>
+#include<cmath>
+#include<windows.h>
+#include <stdio.h>
+#include<cstdlib>
+#include<string>
+#include<process.h>
+using namespace std;
+
+//variable
+double X1, X2, B, C, A, K1, K2, H1, H2, R1, R2;
+
+
+
+//menu options
+string choice;
+
+int main()
+{
+Start:
+system("cls");
+SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 10);
+cout<<" Quad- Project \n";
+SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 15);
+cout<<" 1. Quadradic Equations? "<< endl;
+cout<<" 2. Circle? "<<endl;
+SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 11);
+cout<< "Please choose one of the tasks: \n";
+SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 15);
+cin>>choice;
+
+// QUAD area
+if (choice =="1")
+{
+	SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 12);
+	cout<<"\n \nSolving with the Quadradic? \n";
+	SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 15);
+	
+	//input
+	cout<<"\n What is A? ";
+		cin>>A;
+	cout<<"\n What is B? ";
+		cin>>B;
+	cout<<"\n What is C? ";
+		cin>>C;
+
+	// Failure IS an Option
+	if((B*B-4*A*C)<0)
+		cout<<"no REAL SOLUTION \n";
+
+
+	// Failure IS maybe an Option
+	else if((B*B-4*A*C)==0)
+	{
+		cout<<"one real SOLUTION";
+		X1=(-B+sqrt(B*B-4*A*C))/(2*A);
+		cout<<"\n"<<X1<<" is your ONE solution \n"; 
+	}
+	//Head Hurting Part
+	 else
+		{
+		cout<<"two SOLUTION";
+		X1=(-B+sqrt(B*B-4*A*C))/(2*A);
+		X2=(-B-sqrt(B*B-4*A*C))/(2*A);
+		cout<<"\n"<<X1<<" & "<<X2<<" is youre solutions \n"; 
+		}
+
+	// Resetting
+	SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 15);
+	system("pause");
+	cout<<" Are you sure? \n";
+	system("pause");
+	goto Start;
+}
+
+
+// Circley
+else if (choice =="2")
+{
+	SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 13);
+	cout<<"\n \n Circle Collision? \n";
+	SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 15);
+	
+	//circle 1
+		cout<<" For circle one \n What is H? ";
+			cin>>H1;
+		cout<<"\n What is K? ";
+			cin>>K1;
+		cout<<"\n What is the Radius? ";
+			cin>>R1;
+
+	//circle 2
+		cout<<"\n For circle two \n What is H? ";
+			cin>>H2;
+		cout<<"\n What is K? ";
+			cin>>K2;
+		cout<<"\n What is the Radius? ";
+			cin>>R2;
+
+	//Calculations
+		// sum of radii's
+		int sumofradii=R1+R2;
+		//distance
+		double d=sqrt((H2-H1)*(H2-H1)+(K2-K1)*(K2-K1));
+		
+	//OutPuts
+		if(d<=sumofradii)
+			{SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 14);
+			cout<<"\n circles collide\n";
+			SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 15);}
+		else
+			{SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 12);
+			cout<<"\n No Soup\n";
+			SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 15);}
+		
+		//numbers logistics
+			SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 7);
+			cout<<"sum of rad, "<<sumofradii<<"\n Distance, "<<d<<"\n"; 
+
+	// Resetting
+	SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 15);
+	system("pause");
+	cout<<" Are you sure? \n";
+	system("pause");
+	goto Start;
+	}
+
+// *boredom achived *
+else if (choice =="666")
+	{SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 12);
+	{ cout<<" he he he he he he he he he...\n";
+	system("pause");}}
+
+
+
+// meaning of life (pi)
+else if (choice =="42")
+	{system("pause");
+	system("color 1F");
+	for (int i=5; i>0; i++)
+	{printf("* \n");	
+	for(int j=0; j<i; j++)
+	{	printf("  ");}}
+	printf("\n \n \n \n \n");}
+
+
+
+else
+ goto Start;
+}
